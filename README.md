@@ -1,5 +1,6 @@
-# imgresize
 [![Build Status](https://travis-ci.org/fmatoss/imgresize.svg?branch=master)](https://travis-ci.org/fmatoss/imgresize)
+
+# imgresize
 Simple command line tool to resize images
 
 ## Instalation
@@ -16,7 +17,7 @@ USAGE:
    imgresize [global options] [arguments...]
    
 VERSION:
-   1.0.0
+   1.1.0
    
 AUTHOR(S):
    Felipe Matos Santana <felipems@yahoo.com.br> 
@@ -31,15 +32,16 @@ GLOBAL OPTIONS:
 			3: Mitchell-Netravali interpolation
 			4: Lanczos resampling with a=2
 			5: Lanczos resampling with a=3
-   --background, -b "0"	background color, used only if stretch is false and the aspect ratio from the output image is not the same as the input, default is 0:
+   --background, -b "0"	background color, used only if stretch is false and aspect ratio from the output image is not the same as the input, default is 0:
 			0: transparent
 			1: black
 			2: white
    --stretch, -s	stretch image, default is false
    --format, -f 	output image format, default is same as input:
-			- png
-			- jpg
+			- bmp
 			- gif
+			- jpg
+			- png
    --version, -v	print the version
 
 ```
