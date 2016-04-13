@@ -43,12 +43,12 @@ GLOBAL OPTIONS:
 
 ```
 
-# Example
+## Example
 This will resize any supported image format to 1920x1080 without stretching and save it as JPG:
 ```
 $ imgresize -w 1920 -h 1080 -f jpg myimage.jpg
 ```
 The resized image file will be saved as "myimage_1920x1080.jpg" in the same directory.
 
-# License
+## License
 [MIT](LICENSE)
