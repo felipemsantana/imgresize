@@ -9,95 +9,53 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"strconv"
 )
 
 var smallSq image.Image = image.NewRGBA(image.Rect(0, 0, 1, 1))
 
 func TestResizeImage(t *testing.T) {
+	assert := assert.New(t)
 	filename := filepath.Join("testdata", "Lenna.png")
 
-	{
-		resizeImage(&cliFlags{
-			width:  0,
-			height: 0,
-			format: "",
-		}, filename)
-		newFilename := filepath.Join("testdata", "Lenna_512x512.png")
-
-		f, err := os.Open(newFilename)
-		defer os.Remove(newFilename)
-		checkError(err)
-
-		img, format, err := image.Decode(f)
-		checkError(err)
-
-		assert.Equal(t, "png", format)
-		imgBounds := img.Bounds()
-		assert.Equal(t, 512, imgBounds.Dx())
-		assert.Equal(t, 512, imgBounds.Dy())
+	testcases := []struct {
+		inWidth, inHeight, outWidth, outHeight int
+		inFormat, outFormat                    string
+	}{
+		{0, 0, 512, 512, "", "png"},
+		{1000, 1000, 1000, 1000, "jpeg", "jpeg"},
+		{999, 0, 999, 999, "png", "png"},
+		{0, 998, 998, 998, "gif", "gif"},
 	}
 
-	{
-		resizeImage(&cliFlags{
-			width:  1000,
-			height: 1000,
-			format: "jpg",
-		}, filename)
-		newFilename := filepath.Join("testdata", "Lenna_1000x1000.jpg")
+	for _, testcase := range testcases {
+		func() {
+			inWidth := testcase.inWidth
+			inHeight := testcase.inHeight
+			inFormat := testcase.inFormat
+			outWidth := testcase.outWidth
+			outHeight := testcase.outHeight
+			outFormat := testcase.outFormat
 
-		f, err := os.Open(newFilename)
-		defer os.Remove(newFilename)
-		checkError(err)
+			resizeImage(&cliFlags{
+				width:  inWidth,
+				height: inHeight,
+				format: inFormat,
+			}, filename)
+			newFilename := filepath.Join("testdata", "Lenna_"+strconv.Itoa(outWidth)+"x"+strconv.Itoa(outHeight)+"."+outFormat)
 
-		img, format, err := image.Decode(f)
-		checkError(err)
+			f, err := os.Open(newFilename)
+			defer os.Remove(newFilename)
+			checkError(err)
 
-		assert.Equal(t, "jpeg", format)
-		imgBounds := img.Bounds()
-		assert.Equal(t, 1000, imgBounds.Dx())
-		assert.Equal(t, 1000, imgBounds.Dy())
-	}
+			img, format, err := image.Decode(f)
+			checkError(err)
 
-	{
-		resizeImage(&cliFlags{
-			width:  999,
-			height: 0,
-			format: "",
-		}, filename)
-		newFilename := filepath.Join("testdata", "Lenna_999x999.png")
-
-		f, err := os.Open(newFilename)
-		defer os.Remove(newFilename)
-		checkError(err)
-
-		img, format, err := image.Decode(f)
-		checkError(err)
-
-		assert.Equal(t, "png", format)
-		imgBounds := img.Bounds()
-		assert.Equal(t, 999, imgBounds.Dx())
-		assert.Equal(t, 999, imgBounds.Dy())
-	}
-
-	{
-		resizeImage(&cliFlags{
-			width:  0,
-			height: 998,
-			format: "gif",
-		}, filename)
-		newFilename := filepath.Join("testdata", "Lenna_998x998.gif")
-
-		f, err := os.Open(newFilename)
-		defer os.Remove(newFilename)
-		checkError(err)
-
-		img, format, err := image.Decode(f)
-		checkError(err)
-
-		assert.Equal(t, "gif", format)
-		imgBounds := img.Bounds()
-		assert.Equal(t, 998, imgBounds.Dx())
-		assert.Equal(t, 998, imgBounds.Dy())
+			assert.Equal(outFormat, format)
+			imgBounds := img.Bounds()
+			assert.Equal(outWidth, imgBounds.Dx())
+			assert.Equal(outHeight, imgBounds.Dy())
+		}()
 	}
 }
 
