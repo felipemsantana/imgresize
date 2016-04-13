@@ -23,9 +23,9 @@ func TestResizeImage(t *testing.T) {
 		inFormat, outFormat                    string
 	}{
 		{0, 0, 512, 512, "", "png"},
-		{1000, 1000, 1000, 1000, "jpeg", "jpeg"},
-		{999, 0, 999, 999, "png", "png"},
-		{0, 998, 998, 998, "gif", "gif"},
+		{232, 232, 232, 232, "jpeg", "jpeg"},
+		{123, 0, 123, 123, "png", "png"},
+		{0, 222, 222, 222, "gif", "gif"},
 		{300, 200, 300, 200, "bmp", "bmp"},
 	}
 
@@ -42,6 +42,7 @@ func TestResizeImage(t *testing.T) {
 				width:  inWidth,
 				height: inHeight,
 				format: inFormat,
+				interp: 0,
 			}, filename)
 			newFilename := filepath.Join("testdata", "Lenna_"+strconv.Itoa(outWidth)+"x"+strconv.Itoa(outHeight)+"."+outFormat)
 
