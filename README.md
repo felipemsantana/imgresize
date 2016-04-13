@@ -1,4 +1,5 @@
 # imgresize
+[![Build Status](https://travis-ci.org/fmatoss/imgresize.svg?branch=master)](https://travis-ci.org/fmatoss/imgresize)
 Simple command line tool to resize images
 
 ## Instalation
