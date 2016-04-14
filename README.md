@@ -16,17 +16,17 @@ $ go get github.com/fmatoss/imgresize
 ## Usage
 ```
 NAME:
-   Image Resizer - Tool to resize images, it supports JPG, GIF and PNG
+   Image Resizer - Tool to resize images, it supports BMP, GIF, JPG and PNG
 
 USAGE:
    imgresize [global options] [arguments...]
-   
+
 VERSION:
    1.1.0
-   
+
 AUTHOR(S):
-   Felipe Matos Santana <felipems@yahoo.com.br> 
-   
+   Felipe Matos Santana <felipems@yahoo.com.br>
+
 GLOBAL OPTIONS:
    --height, -h "0"	output image height, default is 0, which preserves original aspect ratio
    --width, -w "0"	output image width, default is 0, which preserves original aspect ratio

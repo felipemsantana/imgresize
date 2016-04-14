@@ -47,7 +47,7 @@ func main() {
 		},
 	}
 	app.Name = "Image Resizer"
-	app.Usage = "Tool to resize images, it supports JPG, GIF and PNG"
+	app.Usage = "Tool to resize images, it supports BMP, GIF, JPG and PNG"
 	app.HelpName = "imgresize"
 	app.HideHelp = true
 	app.Version = "1.1.0"
