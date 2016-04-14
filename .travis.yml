@@ -10,11 +10,15 @@ go:
   - 1.6.1
   - tip
 
+before_install:
+  - go get github.com/mattn/goveralls
+  - go get golang.org/x/tools/cmd/cover
+
 script:
-  - go test -v ./...
+  - $HOME/gopath/bin/goveralls -service=travis-ci
 
 before_deploy:
-  - go get -u github.com/mitchellh/gox
+  - go get github.com/mitchellh/gox
   - gox -os="darwin linux windows"
 
 deploy:
