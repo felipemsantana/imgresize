@@ -161,22 +161,24 @@ func TestEncode(t *testing.T) {
 
 	// Valid
 	validExts := []string{
+		"bmp",
+		"gif",
 		"jpg",
 		"jpeg",
 		"png",
-		"gif",
+		"tiff",
 	}
 
-	var err error
+	assert := assert.New(t)
 	for _, ext := range validExts {
-		err = encode(file, smallSq, ext)
-		assert.NoError(t, err)
+		err := encode(file, smallSq, ext)
+		assert.NoError(err)
 	}
 
 	// Invalid
-	err = encode(file, smallSq, "fail")
-	assert.Error(t, err)
-	assert.Equal(t, "Unknown encode format: \"fail\"", err.Error())
+	err := encode(file, smallSq, "fail")
+	assert.Error(err)
+	assert.Equal("Unknown encode format: \"fail\"", err.Error())
 }
 
 func createTempFile() (file *os.File) {
