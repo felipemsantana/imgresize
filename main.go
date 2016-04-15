@@ -18,6 +18,7 @@ import (
 	"github.com/codegangsta/cli"
 	"github.com/nfnt/resize"
 	"golang.org/x/image/bmp"
+	"golang.org/x/image/tiff"
 )
 
 type cliFlags struct {
@@ -47,7 +48,7 @@ func main() {
 		},
 	}
 	app.Name = "Image Resizer"
-	app.Usage = "Tool to resize images, it supports BMP, GIF, JPG and PNG"
+	app.Usage = "Tool to resize images, it supports BMP, GIF, JPG, PNG and TIFF"
 	app.HelpName = "imgresize"
 	app.HideHelp = true
 	app.Version = "1.1.0"
@@ -91,7 +92,8 @@ func main() {
 	- bmp
 	- gif
 	- jpg
-	- png`,
+	- png
+	- tiff`,
 		},
 	}
 	app.Action = handleActions
@@ -251,6 +253,8 @@ func encode(out io.Writer, resized image.Image, format string) error {
 		return jpeg.Encode(out, resized, nil)
 	case "png":
 		return png.Encode(out, resized)
+	case "tiff":
+		return tiff.Encode(out, resized, nil)
 	default:
 		return errors.New("Unknown encode format: \"" + format + "\"")
 	}

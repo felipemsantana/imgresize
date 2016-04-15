@@ -27,6 +27,7 @@ func TestResizeImage(t *testing.T) {
 		{123, 0, 123, 123, "png", "png"},
 		{0, 222, 222, 222, "gif", "gif"},
 		{300, 200, 300, 200, "bmp", "bmp"},
+		{100, 100, 100, 100, "tiff", "tiff"},
 	}
 
 	for _, testcase := range testcases {
