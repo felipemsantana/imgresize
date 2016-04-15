@@ -6,10 +6,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"strconv"
 )
 
 var smallSq image.Image = image.NewRGBA(image.Rect(0, 0, 1, 1))
@@ -163,9 +163,10 @@ func TestEncode(t *testing.T) {
 	validExts := []string{
 		"bmp",
 		"gif",
-		"jpg",
 		"jpeg",
+		"jpg",
 		"png",
+		"tif",
 		"tiff",
 	}
 

@@ -48,7 +48,7 @@ func main() {
 		},
 	}
 	app.Name = "Image Resizer"
-	app.Usage = "Tool to resize images, it supports BMP, GIF, JPG, PNG and TIFF"
+	app.Usage = "Tool to resize images, it supports BMP, GIF, JPEG, PNG and TIFF"
 	app.HelpName = "imgresize"
 	app.HideHelp = true
 	app.Version = "1.2.0"
@@ -93,7 +93,7 @@ func main() {
 	- gif
 	- jpg
 	- png
-	- tiff`,
+	- tif`,
 		},
 	}
 	app.Action = handleActions
@@ -253,7 +253,7 @@ func encode(out io.Writer, resized image.Image, format string) error {
 		return jpeg.Encode(out, resized, nil)
 	case "png":
 		return png.Encode(out, resized)
-	case "tiff":
+	case "tif", "tiff":
 		return tiff.Encode(out, resized, nil)
 	default:
 		return errors.New("Unknown encode format: \"" + format + "\"")
