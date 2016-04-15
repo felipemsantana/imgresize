@@ -1,6 +1,5 @@
 [![Latest Release](https://img.shields.io/github/release/fmatoss/imgresize.svg?maxAge=2592000)](https://github.com/fmatoss/imgresize/releases/latest)
 [![Build Status](https://travis-ci.org/fmatoss/imgresize.svg?branch=master)](https://travis-ci.org/fmatoss/imgresize)
-[![Coverage Status](https://coveralls.io/repos/github/fmatoss/imgresize/badge.svg?branch=master)](https://coveralls.io/github/fmatoss/imgresize?branch=master)
 
 # imgresize
 Simple command line tool to resize images
