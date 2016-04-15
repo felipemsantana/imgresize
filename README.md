@@ -15,13 +15,13 @@ $ go get github.com/fmatoss/imgresize
 ## Usage
 ```
 NAME:
-   Image Resizer - Tool to resize images, it supports BMP, GIF, JPG and PNG
+   Image Resizer - Tool to resize images, it supports BMP, GIF, JPG, PNG and TIFF
 
 USAGE:
    imgresize [global options] [arguments...]
 
 VERSION:
-   1.1.0
+   1.2.0
 
 AUTHOR(S):
    Felipe Matos Santana <felipems@yahoo.com.br>
@@ -46,6 +46,7 @@ GLOBAL OPTIONS:
 			- gif
 			- jpg
 			- png
+			- tiff
    --version, -v	print the version
 
 ```
