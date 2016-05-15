@@ -27,27 +27,27 @@ AUTHOR(S):
    Felipe Matos Santana <felipems@yahoo.com.br>
 
 GLOBAL OPTIONS:
-   --height, -h "0"	output image height, default is 0, which preserves original aspect ratio
-   --width, -w "0"	output image width, default is 0, which preserves original aspect ratio
-   --interp, -i "5"	interpolation function, from 0 (fastest) to 5 (slowest), default is 5:
-			0: Nearest-neighbor interpolation
-			1: Bilinear interpolation
-			2: Bicubic interpolation
-			3: Mitchell-Netravali interpolation
-			4: Lanczos resampling with a=2
-			5: Lanczos resampling with a=3
-   --background, -b "0"	background color, used only if stretch is false and aspect ratio from the output image is not the same as the input, default is 0:
-			0: transparent
-			1: black
-			2: white
-   --stretch, -s	stretch image, default is false
-   --format, -f 	output image format, default is same as input:
-			- bmp
-			- gif
-			- jpg
-			- png
-			- tif
-   --version, -v	print the version
+   --height value, -h value	output image height, value 0 preserves original aspect ratio (default: 0)
+   --width value, -w value	output image width, value 0 preserves original aspect ratio (default: 0)
+   --interp value, -i value	interpolation function, from 0 (fastest) to 5 (slowest):
+				0: Nearest-neighbor interpolation
+				1: Bilinear interpolation
+				2: Bicubic interpolation
+				3: Mitchell-Netravali interpolation
+				4: Lanczos resampling with a=2
+				5: Lanczos resampling with a=3 (default: 5)
+   --background value, -b value	background color, used only if stretch is false and aspect ratio from the output image is not the same as the input:
+				0: transparent
+				1: black
+				2: white (default: 0)
+   --stretch, -s		stretch image, default is false
+   --format value, -f value	output image format, default is same as input:
+				- bmp
+				- gif
+				- jpg
+				- png
+				- tif
+   --version, -v		print the version
 
 ```
 

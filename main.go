@@ -56,17 +56,17 @@ func main() {
 		cli.IntFlag{
 			Name:  "height, h",
 			Value: 0,
-			Usage: "output image height, default is 0, which preserves original aspect ratio",
+			Usage: "output image height, value 0 preserves original aspect ratio",
 		},
 		cli.IntFlag{
 			Name:  "width, w",
 			Value: 0,
-			Usage: "output image width, default is 0, which preserves original aspect ratio",
+			Usage: "output image width, value 0 preserves original aspect ratio",
 		},
 		cli.IntFlag{
 			Name:  "interp, i",
 			Value: 5,
-			Usage: `interpolation function, from 0 (fastest) to 5 (slowest), default is 5:
+			Usage: `interpolation function, from 0 (fastest) to 5 (slowest):
 	0: Nearest-neighbor interpolation
 	1: Bilinear interpolation
 	2: Bicubic interpolation
@@ -77,7 +77,7 @@ func main() {
 		cli.IntFlag{
 			Name:  "background, b",
 			Value: 0,
-			Usage: `background color, used only if stretch is false and aspect ratio from the output image is not the same as the input, default is 0:
+			Usage: `background color, used only if stretch is false and aspect ratio from the output image is not the same as the input:
 	0: transparent
 	1: black
 	2: white`,
@@ -100,11 +100,11 @@ func main() {
 	app.Run(os.Args)
 }
 
-func handleActions(c *cli.Context) {
+func handleActions(c *cli.Context) error {
 	totalArgs := c.NArg()
 	if totalArgs == 0 {
 		cli.ShowAppHelp(c)
-		return
+		return nil
 	}
 
 	flags := &cliFlags{
@@ -121,6 +121,8 @@ func handleActions(c *cli.Context) {
 		resizeImageAsync(flags, arg, wg)
 	}
 	wg.Wait()
+
+	return nil
 }
 
 func resizeImageAsync(flags *cliFlags, filename string, wg *sync.WaitGroup) {
