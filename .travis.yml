@@ -9,7 +9,7 @@ script:
 
 before_deploy:
   - go get github.com/mitchellh/gox
-  - gox -os="darwin linux windows"
+  - gox -os="darwin linux windows" -arch="386 amd64"
 
 deploy:
   provider: releases
@@ -20,7 +20,6 @@ deploy:
     - imgresize_darwin_amd64
     - imgresize_linux_386
     - imgresize_linux_amd64
-    - imgresize_linux_arm
     - imgresize_windows_386.exe
     - imgresize_windows_amd64.exe
   skip_cleanup: true
