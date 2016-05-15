@@ -21,7 +21,7 @@ USAGE:
    imgresize [global options] [arguments...]
 
 VERSION:
-   1.2.0
+   1.3.0
 
 AUTHOR(S):
    Felipe Matos Santana <felipems@yahoo.com.br>

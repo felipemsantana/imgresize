@@ -51,7 +51,7 @@ func main() {
 	app.Usage = "Tool to resize images, it supports BMP, GIF, JPEG, PNG and TIFF"
 	app.HelpName = "imgresize"
 	app.HideHelp = true
-	app.Version = "1.2.0"
+	app.Version = "1.3.0"
 	app.Flags = []cli.Flag{
 		cli.IntFlag{
 			Name:  "height, h",
