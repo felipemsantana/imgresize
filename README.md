@@ -1,15 +1,15 @@
-[![Latest Release](https://img.shields.io/github/release/fmatoss/imgresize.svg?maxAge=2592000)](https://github.com/fmatoss/imgresize/releases/latest)
-[![Build Status](https://travis-ci.org/fmatoss/imgresize.svg?branch=master)](https://travis-ci.org/fmatoss/imgresize)
+[![Latest Release](https://img.shields.io/github/release/felipemsantana/imgresize.svg?maxAge=2592000)](https://github.com/felipemsantana/imgresize/releases/latest)
+[![Build Status](https://travis-ci.org/felipemsantana/imgresize.svg?branch=master)](https://travis-ci.org/felipemsantana/imgresize)
 
 # imgresize
 Simple command line tool to resize images
 
 ## Instalation
-Download the latest binary file for your operating system and architecture [here](https://github.com/fmatoss/imgresize/releases/latest).
+Download the latest binary file for your operating system and architecture [here](https://github.com/felipemsantana/imgresize/releases/latest).
 
 Or download and install from the source:
 ```
-$ go get github.com/fmatoss/imgresize
+$ go get github.com/felipemsantana/imgresize
 ```
 
 ## Usage
