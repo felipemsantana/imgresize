@@ -24,5 +24,5 @@ deploy:
     - imgresize_windows_amd64.exe
   skip_cleanup: true
   on:
-    repo: fmatoss/imgresize
+    repo: felipemsantana/imgresize
     tags: true
